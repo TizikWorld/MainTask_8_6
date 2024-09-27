@@ -1,25 +1,37 @@
-﻿namespace Task2
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Task2
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            
+
             string path = "";
 
-            while (!Directory.Exists(path)) {
+            GetSize(path);
+
+
+            
+        }
+        public static void GetSize(string Path)
+        {
+
+
+            while (!Directory.Exists(Path))
+            {
                 Console.WriteLine("Введите путь дирректории");
-                path = Console.ReadLine();
+                Path = Console.ReadLine();
             }
 
-            long size = DirSize(new System.IO.DirectoryInfo(path));
+            long size = DirSize(new System.IO.DirectoryInfo(Path));
 
             Console.WriteLine($"Вес дирректории:{size} байт");
 
             static long DirSize(DirectoryInfo d)
             {
                 long Size = 0;
-               
+
                 FileInfo[] fis = d.GetFiles();
                 foreach (FileInfo fi in fis)
                 {
@@ -35,5 +47,7 @@
                 return (Size);
             }
         }
+
+
     }
 }
