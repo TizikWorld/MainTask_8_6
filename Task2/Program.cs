@@ -4,7 +4,21 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            
+            string path = "";
+
+            while (!Directory.Exists(path)) {
+                Console.WriteLine("Введите путь дирректории");
+                path = Console.ReadLine();
+                
+            }
+
+
+
+
+
+
+
         }
     }
 }
