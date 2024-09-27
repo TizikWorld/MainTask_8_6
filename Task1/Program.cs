@@ -36,6 +36,7 @@ namespace Task1
                     DateTime lastAccessTime = Directory.GetLastAccessTime(folder);
                     if (lastAccessTime > dateNow - timeLimit)//<
                     {
+                        File.SetAttributes(folder, FileAttributes.Normal); //позволяет избежать исключения access to the path
                         Directory.Delete(folder,true);
                         Console.WriteLine($"Папка удалена:{folder}");
                     }
